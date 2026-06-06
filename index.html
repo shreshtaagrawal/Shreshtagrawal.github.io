@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shreshta Agrawal — Aerospace Engineer · IIT Kharagpur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060911;
+  --bg-2:#0a0f1c;
+  --panel:#0c1322;
+  --panel-2:#0f1830;
+  --line:rgba(150,170,210,0.13);
+  --line-strong:rgba(150,170,210,0.24);
+  --cream:#ece8da;
+  --cream-dim:#c8c6bd;
+  --muted:#7d879e;
+  --muted-2:#5a6377;
+  --blue:#5b8def;
+  --blue-bright:#7aa6ff;
+  --glow:rgba(91,141,239,0.5);
+  --warm:#d9a05b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:300;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(91,141,239,0.3);color:#fff}
+
+/* ---------- starfield ---------- */
+#starfield{position:fixed;inset:0;z-index:0;pointer-events:none}
+.bg-grad{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(1200px 700px at 75% -8%, rgba(91,141,239,0.16), transparent 60%),
+    radial-gradient(900px 600px at 8% 12%, rgba(120,90,200,0.10), transparent 60%),
+    linear-gradient(180deg,#060911 0%,#070b16 45%,#05080f 100%);
+}
+.content{position:relative;z-index:2}
+
+/* ---------- type ---------- */
+.mono{font-family:'IBM Plex Mono',monospace;font-weight:400}
+.label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:var(--blue-bright)}
+h1,h2,h3{font-weight:500;line-height:1.05;letter-spacing:-0.02em}
+.serif{font-family:'Fraunces',serif}
+
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 40px;
+  backdrop-filter:blur(12px);
+  background:linear-gradient(180deg,rgba(6,9,17,0.85),rgba(6,9,17,0));
+  border-bottom:1px solid transparent;transition:border-color .4s,background .4s}
+nav.scrolled{background:rgba(6,9,17,0.86);border-bottom:1px solid var(--line)}
+.nav-logo{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.2em;color:var(--cream);display:flex;align-items:center;gap:10px}
+.nav-logo .dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px var(--glow)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;color:var(--muted);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--cream)}
+.nav-cta{border:1px solid var(--line-strong);padding:8px 16px;border-radius:2px;color:var(--cream)!important}
+.nav-cta:hover{border-color:var(--blue);color:var(--blue-bright)!important}
+@media(max-width:760px){.nav-links a:not(.nav-cta){display:none}nav{padding:16px 22px}}
+
+/* ---------- layout ---------- */
+section{padding:130px 40px;max-width:1180px;margin:0 auto;position:relative}
+@media(max-width:760px){section{padding:90px 22px}}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:54px}
+.sec-head .num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--blue);opacity:.8}
+.sec-head h2{font-size:clamp(28px,4vw,46px);color:var(--cream)}
+.sec-head .rule{flex:1;height:1px;background:var(--line);align-self:center;margin-left:8px}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  max-width:1180px;margin:0 auto;padding:120px 40px 80px;position:relative}
+@media(max-width:760px){.hero{padding:120px 22px 70px}}
+.hero-status{display:inline-flex;align-items:center;gap:12px;margin-bottom:34px;
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;color:var(--muted)}
+.hero-status .live{width:8px;height:8px;border-radius:50%;background:#5fcf9a;box-shadow:0 0 10px rgba(95,207,154,.8);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{font-size:clamp(46px,9vw,118px);font-weight:500;letter-spacing:-0.04em;color:#fff;line-height:0.92}
+.hero h1 .accent{font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+  background:linear-gradient(120deg,var(--blue-bright),#a9c4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-tag{max-width:620px;margin-top:30px;font-size:clamp(17px,2vw,21px);color:var(--cream-dim);font-weight:300;line-height:1.55}
+.hero-tag b{color:var(--cream);font-weight:500}
+.hero-meta{display:flex;flex-wrap:wrap;gap:14px 28px;margin-top:42px}
+.hero-chip{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:var(--cream-dim);
+  border:1px solid var(--line);border-radius:2px;padding:9px 15px;background:rgba(255,255,255,0.015);
+  display:flex;align-items:center;gap:9px}
+.hero-chip span{color:var(--blue-bright)}
+.scroll-cue{position:absolute;bottom:38px;left:40px;font-family:'IBM Plex Mono',monospace;font-size:11px;
+  letter-spacing:0.2em;color:var(--muted-2);display:flex;align-items:center;gap:12px}
+.scroll-cue .ln{width:46px;height:1px;background:var(--muted-2);position:relative;overflow:hidden}
+.scroll-cue .ln::after{content:"";position:absolute;inset:0;width:18px;background:var(--blue);animation:slide 2.2s infinite}
+@keyframes slide{0%{transform:translateX(-20px)}100%{transform:translateX(46px)}}
+@media(max-width:760px){.scroll-cue{left:22px}}
+
+/* orbit decoration */
+.orbit-deco{position:absolute;right:-120px;top:50%;transform:translateY(-50%);width:560px;height:560px;
+  z-index:1;pointer-events:none;opacity:.55}
+@media(max-width:980px){.orbit-deco{opacity:.22;right:-220px}}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:start}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:44px}}
+.about-lead{font-size:clamp(20px,2.4vw,27px);line-height:1.5;font-weight:300;color:var(--cream)}
+.about-lead em{font-family:'Fraunces',serif;font-style:italic;color:var(--blue-bright)}
+.about-body{margin-top:24px;color:var(--muted);font-size:16px;max-width:560px}
+.about-body p+p{margin-top:16px}
+.focus-card{border:1px solid var(--line);background:var(--panel);border-radius:4px;padding:26px}
+.focus-card .label{margin-bottom:20px}
+.focus-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+.focus-row:first-of-type{border-top:none}
+.focus-row .ic{width:30px;height:30px;flex:none;display:grid;place-items:center;border:1px solid var(--line-strong);border-radius:50%}
+.focus-row .ic i{width:9px;height:9px;border-radius:50%;background:var(--blue);box-shadow:0 0 9px var(--glow)}
+.focus-row b{font-weight:500;color:var(--cream);font-size:15px}
+.focus-row p{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted-2);letter-spacing:.04em}
+
+/* ---------- projects ---------- */
+.projects{display:flex;flex-direction:column;gap:30px}
+.project{display:grid;grid-template-columns:0.85fr 1.15fr;border:1px solid var(--line);border-radius:6px;
+  overflow:hidden;background:var(--panel);transition:border-color .4s,transform .4s}
+.project:hover{border-color:var(--line-strong);transform:translateY(-3px)}
+.project:nth-child(even){grid-template-columns:1.15fr 0.85fr}
+.project:nth-child(even) .p-media{order:2}
+@media(max-width:820px){.project,.project:nth-child(even){grid-template-columns:1fr}.project:nth-child(even) .p-media{order:0}}
+.p-media{position:relative;min-height:300px;
+  background:
+    repeating-linear-gradient(135deg,rgba(91,141,239,0.05) 0 2px,transparent 2px 11px),
+    linear-gradient(160deg,var(--panel-2),#0a0f1d);
+  border-right:1px solid var(--line);display:grid;place-items:center}
+.project:nth-child(even) .p-media{border-right:none;border-left:1px solid var(--line)}
+.p-media .ph{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;color:var(--muted-2);
+  text-align:center;padding:12px 18px;border:1px dashed var(--line-strong);border-radius:3px}
+.p-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.02) contrast(1.02)}
+.p-media .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,9,17,.12),rgba(6,9,17,.55));pointer-events:none}
+.p-tag{position:absolute;top:18px;left:18px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+  letter-spacing:0.14em;text-transform:uppercase;padding:6px 11px;border-radius:2px;
+  background:rgba(6,9,17,.7);border:1px solid var(--line-strong);backdrop-filter:blur(4px)}
+.p-tag.live{color:#5fcf9a;border-color:rgba(95,207,154,.4)}
+.p-tag.research{color:var(--warm);border-color:rgba(217,160,91,.4)}
+.p-tag.done{color:var(--blue-bright);border-color:rgba(91,141,239,.4)}
+.p-body{padding:36px 38px;display:flex;flex-direction:column}
+@media(max-width:760px){.p-body{padding:28px 24px}}
+.p-idx{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--blue);opacity:.7;margin-bottom:14px}
+.p-body h3{font-size:clamp(23px,2.6vw,30px);color:#fff;margin-bottom:14px;letter-spacing:-0.02em}
+.p-body p{color:var(--muted);font-size:15.5px;line-height:1.62;max-width:520px}
+.p-stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.p-stack span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--cream-dim);
+  border:1px solid var(--line);border-radius:2px;padding:5px 10px;background:rgba(255,255,255,.012)}
+.p-metric{margin-top:auto;padding-top:24px;display:flex;gap:30px}
+.p-metric .m b{font-family:'Space Grotesk';font-weight:600;font-size:24px;color:var(--blue-bright);display:block;line-height:1}
+.p-metric .m span{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--muted-2);letter-spacing:.08em;text-transform:uppercase}
+
+/* ---------- mission ---------- */
+.mission{text-align:center;max-width:980px}
+.mission .label{display:inline-block;margin-bottom:30px}
+.mission p{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(26px,4.4vw,52px);line-height:1.22;
+  letter-spacing:-0.015em;color:var(--cream)}
+.mission p em{font-style:italic;color:var(--blue-bright)}
+.mission .sub{font-family:'Space Grotesk';font-size:16px;color:var(--muted);margin-top:34px;max-width:620px;
+  margin-left:auto;margin-right:auto;line-height:1.6}
+
+/* ---------- achievements / stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--panel);padding:34px 26px}
+.stat b{font-family:'Space Grotesk';font-weight:600;font-size:clamp(34px,5vw,52px);color:#fff;display:block;line-height:1;letter-spacing:-0.03em}
+.stat b u{text-decoration:none;color:var(--blue-bright)}
+.stat span{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);letter-spacing:.06em;margin-top:12px;display:block}
+.award{margin-top:30px;display:flex;gap:20px;align-items:center;border:1px solid var(--line);
+  border-radius:6px;padding:26px 30px;background:linear-gradient(120deg,var(--panel),rgba(91,141,239,0.04))}
+.award .badge{width:54px;height:54px;flex:none;border-radius:50%;border:1px solid rgba(217,160,91,.5);
+  display:grid;place-items:center;background:radial-gradient(circle,rgba(217,160,91,.14),transparent)}
+.award .badge i{width:14px;height:14px;border-radius:50%;background:var(--warm);box-shadow:0 0 14px rgba(217,160,91,.7)}
+.award h3{font-size:20px;color:#fff;margin-bottom:4px}
+.award p{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:.04em}
+
+/* ---------- skills ---------- */
+.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:860px){.skill-grid{grid-template-columns:1fr}}
+.skill-cat{border:1px solid var(--line);border-radius:5px;padding:28px;background:var(--panel)}
+.skill-cat h3{font-size:14px;font-family:'IBM Plex Mono',monospace;font-weight:500;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--blue-bright);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.skill-cat h3::before{content:"";width:18px;height:1px;background:var(--blue)}
+.skill-cat ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.skill-cat li{font-size:15px;color:var(--cream-dim);display:flex;align-items:center;gap:11px}
+.skill-cat li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--muted-2);flex:none}
+
+/* ---------- timeline (experience + education) ---------- */
+.tl-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+@media(max-width:860px){.tl-grid{grid-template-columns:1fr;gap:48px}}
+.tl-col .label{margin-bottom:30px;display:block}
+.timeline{position:relative;padding-left:30px}
+.timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line-strong)}
+.tl-item{position:relative;padding-bottom:32px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-30px;top:5px;width:11px;height:11px;border-radius:50%;
+  background:var(--bg);border:1px solid var(--blue);box-shadow:0 0 0 4px var(--bg)}
+.tl-item.now::before{background:var(--blue);box-shadow:0 0 12px var(--glow),0 0 0 4px var(--bg)}
+.tl-item .when{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--blue);margin-bottom:6px}
+.tl-item h3{font-size:18px;color:#fff;margin-bottom:5px}
+.tl-item p{font-size:14.5px;color:var(--muted);line-height:1.55}
+
+/* ---------- contact ---------- */
+.contact{text-align:left}
+.contact-inner{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--panel)}
+.contact-top{padding:54px 48px 40px;border-bottom:1px solid var(--line);
+  background:radial-gradient(700px 300px at 80% 0%,rgba(91,141,239,0.12),transparent 60%)}
+@media(max-width:760px){.contact-top{padding:40px 26px 32px}}
+.contact-top h2{font-size:clamp(30px,5vw,54px);color:#fff;letter-spacing:-0.03em;max-width:680px}
+.contact-top h2 em{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--blue-bright)}
+.contact-top p{color:var(--muted);margin-top:18px;font-size:16px;max-width:480px}
+.contact-links{display:grid;grid-template-columns:repeat(4,1fr)}
+@media(max-width:760px){.contact-links{grid-template-columns:1fr 1fr}}
+.c-link{padding:26px 28px;border-right:1px solid var(--line);text-decoration:none;display:flex;flex-direction:column;gap:8px;transition:background .3s}
+.c-link:last-child{border-right:none}
+.c-link:hover{background:rgba(91,141,239,0.06)}
+.c-link .k{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
+.c-link .v{font-size:16px;color:var(--cream);display:flex;align-items:center;gap:8px}
+.c-link:hover .v{color:var(--blue-bright)}
+.c-link .v .arr{font-family:'IBM Plex Mono',monospace;font-size:13px;opacity:.6}
+@media(max-width:760px){.c-link:nth-child(2n){border-right:none}.c-link{border-bottom:1px solid var(--line)}}
+
+footer{max-width:1180px;margin:0 auto;padding:40px;display:flex;justify-content:space-between;
+  align-items:center;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;
+  font-size:11.5px;color:var(--muted-2);letter-spacing:.06em;flex-wrap:wrap;gap:14px}
+@media(max-width:760px){footer{padding:32px 22px}}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<canvas id="starfield"></canvas>
+<div class="bg-grad"></div>
+
+<nav id="nav">
+  <div class="nav-logo"><span class="dot"></span>SHRESHTA<span style="color:var(--muted-2)">// AE</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#mission">Mission</a>
+    <a href="#skills">Skills</a>
+    <a href="#journey">Journey</a>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<div class="content">
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <svg class="orbit-deco" viewBox="0 0 560 560" fill="none">
+    <circle cx="280" cy="280" r="278" stroke="rgba(150,170,210,0.16)"/>
+    <circle cx="280" cy="280" r="205" stroke="rgba(150,170,210,0.12)" stroke-dasharray="3 8"/>
+    <circle cx="280" cy="280" r="130" stroke="rgba(91,141,239,0.3)"/>
+    <circle cx="280" cy="280" r="62" stroke="rgba(150,170,210,0.16)"/>
+    <g class="spin" style="transform-origin:280px 280px">
+      <circle cx="280" cy="2" r="6" fill="#7aa6ff"/>
+    </g>
+    <g class="spin2" style="transform-origin:280px 280px">
+      <circle cx="410" cy="280" r="4" fill="#d9a05b"/>
+    </g>
+    <circle cx="280" cy="280" r="9" fill="#5b8def"/>
+  </svg>
+  <div class="hero-status reveal in"><span class="live"></span>AEROSPACE ENGINEERING · IIT KHARAGPUR · OPEN TO INTERNSHIPS</div>
+  <h1 class="reveal in">Shreshta Agrawal<br><span class="accent">aerospace</span> engineer</h1>
+  <p class="hero-tag reveal in">A passionate aerospace undergraduate at <b>IIT Kharagpur</b>, exploring every domain of flight — <b>aerodynamics, flight mechanics</b>, and the frontier where <b>machine learning meets physics</b> through Physics-Informed Neural Networks.</p>
+  <div class="hero-meta reveal in">
+    <div class="hero-chip"><span>◇</span> IIT Kharagpur · B.Tech AE</div>
+    <div class="hero-chip"><span>◆</span> Boeing Zonals — 1st Prize · ₹50K</div>
+    <div class="hero-chip"><span>◇</span> UAV · Autonomy · PINN · CFD</div>
+  </div>
+  <a href="#about" class="scroll-cue" style="text-decoration:none;color:inherit"><span class="ln"></span>SCROLL TO EXPLORE</a>
+</header>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about">
+  <div class="sec-head reveal"><span class="num">01</span><h2>About</h2><div class="rule"></div></div>
+  <div class="about-grid">
+    <div class="reveal">
+      <p class="about-lead">I build things that fly — and I'm fascinated by the <em>physics underneath</em> every one of them.</p>
+      <div class="about-body">
+        <p>I'm a B.Tech Aerospace Engineering student at <b style="color:var(--cream);font-weight:500">IIT Kharagpur</b>, driven by a simple curiosity: how do we make flight lighter, smarter, and more autonomous? That question pulls me across disciplines — from designing competition UAVs and optimizing them against tight dynamic constraints, to teaching neural networks the laws of aerodynamics.</p>
+        <p>I currently work as a research intern across two labs at IIT KGP — running laser-Doppler experiments on bluff-body wake flows, and building Physics-Informed Neural Networks for trajectory and launch-condition prediction. I like problems where a clean equation and a clever model meet a hard real-world constraint.</p>
+      </div>
+    </div>
+    <div class="focus-card reveal">
+      <div class="label">Focus Areas</div>
+      <div class="focus-row"><span class="ic"><i></i></span><div><b>Aerodynamics</b><p>FLOW · DRAG · LIFT OPTIMIZATION</p></div></div>
+      <div class="focus-row"><span class="ic"><i></i></span><div><b>Flight Mechanics</b><p>DYNAMICS · STABILITY · CONTROL</p></div></div>
+      <div class="focus-row"><span class="ic"><i></i></span><div><b>PINN &amp; ML in Aerospace</b><p>PHYSICS-INFORMED MODELING</p></div></div>
+      <div class="focus-row"><span class="ic"><i></i></span><div><b>Simulation &amp; FEA</b><p>LS-DYNA · STRUCTURES · IMPACT</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section id="projects">
+  <div class="sec-head reveal"><span class="num">02</span><h2>Selected Projects</h2><div class="rule"></div></div>
+  <div class="projects">
+
+    <article class="project reveal">
+      <div class="p-media">
+        <span class="p-tag done">Completed · Boeing 1st Prize</span>
+        <img src="images/uav-team.jpeg" alt="Team with the payload-dropping fixed-wing UAV and Boeing first-prize cheque">
+        <div class="scrim"></div>
+      </div>
+      <div class="p-body">
+        <div class="p-idx">PROJECT 01 · GROUP PROJECT · IIT KGP</div>
+        <h3>Fixed-Wing UAV with Payload Deployment</h3>
+        <p>Designed and fabricated a remote-controlled fixed-wing aircraft with an integrated, servo-actuated payload-release mechanism for controlled mid-air deployment. Built the CAD airframe, tuned centre-of-gravity and wing loading for stable flight, and ran full flight testing — winning First Prize at the Boeing Zonals.</p>
+        <div class="p-stack"><span>Aerodynamics</span><span>SolidWorks CAD</span><span>RC Systems</span><span>Payload Drop</span><span>Flight Testing</span></div>
+        <div class="p-metric">
+          <div class="m"><b>1st</b><span>Boeing Zonals</span></div>
+          <div class="m"><b>₹50K</b><span>Cash Prize</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="p-media">
+        <span class="p-tag research">Research · IIT KGP · Prof. Prasun Jana</span>
+        <div class="ph">PINN TRAJECTORY<br>/ PREDICTION PLOT</div>
+      </div>
+      <div class="p-body">
+        <div class="p-idx">PROJECT 02 · R&amp;D INTERNSHIP</div>
+        <h3>PINNs for Trajectory &amp; Launch-Condition Prediction</h3>
+        <p>Developing Physics-Informed Neural Networks for projectile motion with drag — enabling both forward trajectory prediction and inverse estimation of initial velocity, launch angle, and drag coefficients from observed motion. Tested for robustness under stochastic disturbances and drag variability, then extended to UAV flight dynamics with cross-winds and vibration as physics constraints.</p>
+        <div class="p-stack"><span>PINNs</span><span>PyTorch / TensorFlow</span><span>Inverse Problems</span><span>Scientific ML</span></div>
+        <div class="p-metric">
+          <div class="m"><b>Physics-</b><span>Informed Loss</span></div>
+          <div class="m"><b>Paper</b><span>In Progress</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="p-media">
+        <span class="p-tag live">In Progress · Personal Build</span>
+        <img src="images/drone.jpeg" alt="Custom quadcopter drone build with flight controller">
+        <div class="scrim"></div>
+      </div>
+      <div class="p-body">
+        <div class="p-idx">PROJECT 03</div>
+        <h3>Autonomous Drone with Quantum Path Planning</h3>
+        <p>Building a quadcopter toward full autonomy, with the ambitious goal of applying quantum path-planning algorithms to optimize its trajectory through complex environments. Exploring how quantum optimization could outperform classical planners on routing and obstacle-avoidance under real flight constraints.</p>
+        <div class="p-stack"><span>Autonomy</span><span>Quantum Optimization</span><span>Path Planning</span><span>Flight Controllers</span></div>
+        <div class="p-metric">
+          <div class="m"><b>R&amp;D</b><span>Active Build</span></div>
+          <div class="m"><b>Goal</b><span>Full Autonomy</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="p-media">
+        <span class="p-tag research">Research · IIT KGP · Prof. S. M. Dash</span>
+        <div class="ph">BLUFF-BODY WAKE<br>/ MiniLDV RIG</div>
+      </div>
+      <div class="p-body">
+        <div class="p-idx">PROJECT 04 · R&amp;D INTERNSHIP</div>
+        <h3>Bluff-Body Wake-Flow Experiment</h3>
+        <p>Operating a MiniLDV with MSE data-acquisition software for high-precision velocity measurements and flow characterization, using a micro-traverse mechanism for precise probe alignment. Designed a circular-cylinder wake-flow rig — CAD modelling and fabrication coordination — to investigate vortex shedding and bluff-body wake structures in controlled lab conditions.</p>
+        <div class="p-stack"><span>Experimental Aero</span><span>Laser-Doppler Velocimetry</span><span>Wake Dynamics</span><span>CAD &amp; Fabrication</span></div>
+        <div class="p-metric">
+          <div class="m"><b>Vortex</b><span>Shedding Study</span></div>
+          <div class="m"><b>Live</b><span>Ongoing</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="p-media">
+        <span class="p-tag live">In Progress · Learning</span>
+        <div class="ph">PARACHUTE FEA<br>/ DEPLOYMENT SIM</div>
+      </div>
+      <div class="p-body">
+        <div class="p-idx">PROJECT 05</div>
+        <h3>Parachute–Payload Drop Simulation (LS-DYNA)</h3>
+        <p>Learning high-fidelity simulation to model a parachute deployment carrying a payload — recreating the crew-member payload drops studied during space missions. Working through fluid–structure interaction and impact dynamics in LS-DYNA to capture deployment loads and landing behaviour.</p>
+        <div class="p-stack"><span>LS-DYNA</span><span>FEA</span><span>FSI</span><span>Impact Dynamics</span></div>
+        <div class="p-metric">
+          <div class="m"><b>Sim</b><span>Crew Drop Profile</span></div>
+          <div class="m"><b>Skill</b><span>Building Up</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="p-media">
+        <span class="p-tag research">Academic Project · IIT KGP</span>
+        <div class="ph">FLAPPING WING<br>/ VORTEX DYNAMICS</div>
+      </div>
+      <div class="p-body">
+        <div class="p-idx">PROJECT 06</div>
+        <h3>Unsteady Aerodynamics of Flapping Wings</h3>
+        <p>Investigated vortex shedding and unsteady wake dynamics in flapping-wing aerodynamics — analysing the formation, evolution and stability of leading-edge vortices (LEVs) and their role in delayed stall and lift enhancement, alongside counter-rotating vortex-pair formation in oscillating wing kinematics.</p>
+        <div class="p-stack"><span>Unsteady Aerodynamics</span><span>LEV Dynamics</span><span>Vortex Wake</span><span>Bio-inspired Flight</span></div>
+        <div class="p-metric">
+          <div class="m"><b>LEV</b><span>Delayed Stall</span></div>
+          <div class="m"><b>Study</b><span>Completed</span></div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ===================== MISSION ===================== -->
+<section id="mission" class="mission">
+  <div class="reveal">
+    <span class="label">Mission</span>
+    <p>To engineer the next generation of <em>lighter, smarter, autonomous</em> flight — fusing classical aerospace with physics-informed machine learning, all the way <em>from runway to orbit.</em></p>
+    <p class="sub">Short term: ship a published PINN model and a fully autonomous drone. Long term: contribute to launch, re-entry, and recovery systems for human spaceflight.</p>
+  </div>
+</section>
+
+<!-- ===================== ACHIEVEMENTS ===================== -->
+<section id="achievements">
+  <div class="sec-head reveal"><span class="num">03</span><h2>Achievements</h2><div class="rule"></div></div>
+  <div class="stats reveal">
+    <div class="stat"><b><u>9.00</u></b><span>CGPA / 10</span></div>
+    <div class="stat"><b>2<u>×</u></b><span>R&amp;D Internships</span></div>
+    <div class="stat"><b>6<u>+</u></b><span>Engineering Projects</span></div>
+    <div class="stat"><b>1</b><span>Paper In Progress</span></div>
+  </div>
+  <div class="award reveal">
+    <div class="badge"><i></i></div>
+    <div>
+      <h3>First Prize — Boeing Aeromodelling Competition (Zonal)</h3>
+      <p>₹50,000 CASH PRIZE · PAYLOAD-DROPPING FIXED-WING UAV · TOP ON MISSION ACCURACY &amp; FLIGHT PERFORMANCE</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section id="skills">
+  <div class="sec-head reveal"><span class="num">04</span><h2>Skills &amp; Tools</h2><div class="rule"></div></div>
+  <div class="skill-grid">
+    <div class="skill-cat reveal">
+      <h3>Engineering</h3>
+      <ul>
+        <li>Aerodynamics &amp; Low-Speed Flow</li>
+        <li>Computational Fluid Dynamics</li>
+        <li>Unsteady &amp; Vortex Flow Dynamics</li>
+        <li>UAV Design &amp; Flight Testing</li>
+        <li>Finite Element Analysis &amp; FSI</li>
+      </ul>
+    </div>
+    <div class="skill-cat reveal">
+      <h3>Computation &amp; ML</h3>
+      <ul>
+        <li>Physics-Informed Neural Networks</li>
+        <li>Python · PyTorch · TensorFlow</li>
+        <li>NumPy · Pandas · Matplotlib</li>
+        <li>C / C++</li>
+        <li>Deep Learning for Flow Prediction</li>
+      </ul>
+    </div>
+    <div class="skill-cat reveal">
+      <h3>Tools &amp; Simulation</h3>
+      <ul>
+        <li>Ansys Fluent · LS-DYNA</li>
+        <li>MATLAB · Simulink</li>
+        <li>SolidWorks · Fusion 360 · Onshape</li>
+        <li>Laser-Doppler Velocimetry (MiniLDV)</li>
+        <li>Jupyter · VS Code</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== JOURNEY (experience + education) ===================== -->
+<section id="journey">
+  <div class="sec-head reveal"><span class="num">05</span><h2>Journey</h2><div class="rule"></div></div>
+  <div class="tl-grid">
+    <div class="tl-col reveal">
+      <span class="label">Experience</span>
+      <div class="timeline">
+        <div class="tl-item now">
+          <div class="when">MAR 2026 — PRESENT</div>
+          <h3>R&amp;D Intern · PINNs · Prof. Prasun Jana, IIT KGP</h3>
+          <p>Building Physics-Informed Neural Networks for trajectory prediction and inverse parameter estimation, extended to UAV flight dynamics with cross-winds and vibration as physics constraints.</p>
+        </div>
+        <div class="tl-item now">
+          <div class="when">JAN 2026 — PRESENT</div>
+          <h3>R&amp;D Intern · Experimental Aero · Prof. S. M. Dash, IIT KGP</h3>
+          <p>Running MiniLDV laser-Doppler measurements and a custom circular-cylinder wake rig to study vortex shedding and bluff-body wake structures.</p>
+        </div>
+        <div class="tl-item">
+          <div class="when">JUL 2025 — PRESENT</div>
+          <h3>Senior Reporter · Awaaz, IIT Kharagpur</h3>
+          <p>Led on-ground campus reporting and interviews; contributed to coverage featured in The Times of India, The Telegraph &amp; The Sunday Times.</p>
+        </div>
+      </div>
+    </div>
+    <div class="tl-col reveal">
+      <span class="label">Education</span>
+      <div class="timeline">
+        <div class="tl-item now">
+          <div class="when">AUG 2024 — MAY 2028</div>
+          <h3>B.Tech, Aerospace Engineering · IIT Kharagpur</h3>
+          <p>CGPA 9.00 / 10. Coursework across aerodynamics, CFD, aerospace structures, flight-vehicle controls, FEA, and physics-informed neural networks.</p>
+        </div>
+        <div class="tl-item">
+          <div class="when">2024</div>
+          <h3>Class XII (HSC) · Pace Junior Science College</h3>
+          <p>93.67% — Dadar, Mumbai.</p>
+        </div>
+        <div class="tl-item">
+          <div class="when">CERTIFICATION</div>
+          <h3>Machine Learning Specialisation</h3>
+          <p>Andrew Ng · Stanford University / DeepLearning.AI.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="contact">
+  <div class="contact-inner reveal">
+    <div class="contact-top">
+      <h2>Let's build something that <em>flies.</em></h2>
+      <p>Open to internships, research collaborations, and conversations about aerospace, simulation, and physics-informed ML.</p>
+    </div>
+    <div class="contact-links">
+      <a class="c-link" href="mailto:shreshtaagrawal4@gmail.com">
+        <span class="k">Email</span>
+        <span class="v">shreshtaagrawal4 <span class="arr">↗</span></span>
+      </a>
+      <a class="c-link" href="https://www.linkedin.com/in/shreshta-agrawal-460548320/" target="_blank" rel="noopener">
+        <span class="k">LinkedIn</span>
+        <span class="v">Shreshta Agrawal <span class="arr">↗</span></span>
+      </a>
+      <a class="c-link" href="https://github.com/shreshtaagrawal" target="_blank" rel="noopener">
+        <span class="k">GitHub</span>
+        <span class="v">@shreshtaagrawal <span class="arr">↗</span></span>
+      </a>
+      <a class="c-link" href="assets/Shreshta-Agrawal-Resume.pdf" target="_blank" rel="noopener">
+        <span class="k">Résumé</span>
+        <span class="v">Download PDF <span class="arr">↓</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 SHRESHTA AGRAWAL · AEROSPACE ENGINEERING · IIT KHARAGPUR</div>
+  <div>DESIGNED &amp; BUILT WITH CURIOSITY · ad astra ✦</div>
+</footer>
+
+</div>
+
+<style>
+.spin{animation:orbit 14s linear infinite}
+.spin2{animation:orbit 22s linear infinite reverse}
+@keyframes orbit{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.spin,.spin2{animation:none}}
+</style>
+
+<script>
+// nav scroll state
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+// reveal on scroll
+const io=new IntersectionObserver((ents)=>{
+  ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+
+// starfield
+const cv=document.getElementById('starfield');
+const ctx=cv.getContext('2d');
+let stars=[],shoot=null,W,H,DPR;
+function resize(){
+  DPR=Math.min(devicePixelRatio||1,2);
+  W=cv.width=innerWidth*DPR;H=cv.height=innerHeight*DPR;
+  cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';
+  const count=Math.floor(innerWidth*innerHeight/9000);
+  stars=[];
+  for(let i=0;i<count;i++){
+    stars.push({
+      x:Math.random()*W,y:Math.random()*H,
+      r:(Math.random()*1.1+0.25)*DPR,
+      a:Math.random()*0.6+0.2,
+      tw:Math.random()*0.02+0.004,
+      ph:Math.random()*Math.PI*2,
+      hue:Math.random()<0.2?'200,150,255':(Math.random()<0.5?'150,190,255':'235,235,225')
+    });
+  }
+}
+resize();addEventListener('resize',resize);
+let t=0;
+function draw(){
+  t++;
+  ctx.clearRect(0,0,W,H);
+  for(const s of stars){
+    const al=s.a+Math.sin(t*s.tw*8+s.ph)*0.25;
+    ctx.beginPath();
+    ctx.fillStyle=`rgba(${s.hue},${Math.max(0.05,al)})`;
+    ctx.arc(s.x,s.y,s.r,0,7);ctx.fill();
+  }
+  // occasional shooting star
+  if(!shoot&&Math.random()<0.0016){
+    shoot={x:Math.random()*W*0.7,y:Math.random()*H*0.4,len:0,life:0,
+      vx:(4+Math.random()*3)*DPR,vy:(2+Math.random()*1.5)*DPR};
+  }
+  if(shoot){
+    shoot.life++;
+    const tailx=shoot.x-shoot.vx*8,taily=shoot.y-shoot.vy*8;
+    const g=ctx.createLinearGradient(shoot.x,shoot.y,tailx,taily);
+    g.addColorStop(0,'rgba(170,200,255,0.9)');g.addColorStop(1,'rgba(170,200,255,0)');
+    ctx.strokeStyle=g;ctx.lineWidth=1.4*DPR;
+    ctx.beginPath();ctx.moveTo(shoot.x,shoot.y);ctx.lineTo(tailx,taily);ctx.stroke();
+    shoot.x+=shoot.vx;shoot.y+=shoot.vy;
+    if(shoot.x>W||shoot.y>H||shoot.life>120)shoot=null;
+  }
+  requestAnimationFrame(draw);
+}
+const prefersReduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(prefersReduced){
+  // static render
+  ctx.clearRect(0,0,W,H);
+  for(const s of stars){ctx.beginPath();ctx.fillStyle=`rgba(${s.hue},${s.a})`;ctx.arc(s.x,s.y,s.r,0,7);ctx.fill();}
+}else{draw();}
+</script>
+</body>
+</html>
