@@ -331,17 +331,17 @@ footer{max-width:1180px;margin:0 auto;padding:40px;display:flex;justify-content:
 
     <article class="project reveal">
       <div class="p-media">
-        <span class="p-tag research">Research · IIT KGP · Prof. Prasun Jana</span>
+        <span class="p-tag research">Research · IIT KGP · Prof. Priyam Chakraborty · Manuscript in Prep</span>
         <div class="ph">PINN TRAJECTORY<br>/ PREDICTION PLOT</div>
       </div>
       <div class="p-body">
         <div class="p-idx">PROJECT 02 · R&amp;D INTERNSHIP</div>
         <h3>PINNs for Trajectory &amp; Launch-Condition Prediction</h3>
-        <p>Developing Physics-Informed Neural Networks for projectile motion with drag — enabling both forward trajectory prediction and inverse estimation of initial velocity, launch angle, and drag coefficients from observed motion. Tested for robustness under stochastic disturbances and drag variability, then extended to UAV flight dynamics with cross-winds and vibration as physics constraints.</p>
-        <div class="p-stack"><span>PINNs</span><span>PyTorch / TensorFlow</span><span>Inverse Problems</span><span>Scientific ML</span></div>
+        <p>Built and validated a Physics-Informed Neural Network pipeline for projectile dynamics across five models, benchmarked against analytical and RK4 ground truth. Developed a <b>generalised parametric PINN</b> that learns the full launch-parameter (u, θ) space in a single network — keeping 100% of configurations under 5% error where a single-config baseline collapses to ~55%. Applied <b>inverse PINN parametrization</b> to recover hidden launch conditions and drag from observed motion. Manuscript in preparation.</p>
+        <div class="p-stack"><span>Parametric PINNs</span><span>Inverse Problems</span><span>PyTorch</span><span>RK4 Validation</span><span>Scientific ML</span></div>
         <div class="p-metric">
-          <div class="m"><b>Physics-</b><span>Informed Loss</span></div>
-          <div class="m"><b>Paper</b><span>In Progress</span></div>
+          <div class="m"><b>Parametric</b><span>Generalises (u, θ) Space</span></div>
+          <div class="m"><b>Inverse</b><span>Launch + Drag Recovery</span></div>
         </div>
       </div>
     </article>
@@ -354,9 +354,9 @@ footer{max-width:1180px;margin:0 auto;padding:40px;display:flex;justify-content:
       </div>
       <div class="p-body">
         <div class="p-idx">PROJECT 03</div>
-        <h3>Autonomous Drone with Quantum Path Planning</h3>
-        <p>Building a quadcopter toward full autonomy, with the ambitious goal of applying quantum path-planning algorithms to optimize its trajectory through complex environments. Exploring how quantum optimization could outperform classical planners on routing and obstacle-avoidance under real flight constraints.</p>
-        <div class="p-stack"><span>Autonomy</span><span>Quantum Optimization</span><span>Path Planning</span><span>Flight Controllers</span></div>
+        <h3>Autonomous Drone Development</h3>
+        <p>Assembling and developing autonomous flight capabilities for a custom quadcopter platform, with focus on stable waypoint navigation and GPS-guided flight.</p>
+        <div class="p-stack"><span>Autonomy</span><span>Flight Controllers</span><span>Waypoint Navigation</span><span>GPS Guidance</span></div>
         <div class="p-metric">
           <div class="m"><b>R&amp;D</b><span>Active Build</span></div>
           <div class="m"><b>Goal</b><span>Full Autonomy</span></div>
@@ -492,8 +492,8 @@ footer{max-width:1180px;margin:0 auto;padding:40px;display:flex;justify-content:
       <div class="timeline">
         <div class="tl-item now">
           <div class="when">MAR 2026 — PRESENT</div>
-          <h3>R&amp;D Intern · PINNs · Prof. Prasun Jana, IIT KGP</h3>
-          <p>Building Physics-Informed Neural Networks for trajectory prediction and inverse parameter estimation, extended to UAV flight dynamics with cross-winds and vibration as physics constraints.</p>
+          <h3>R&amp;D Intern · PINNs · Prof. Priyam Chakraborty, IIT KGP</h3>
+          <p>Built and validated a PINN pipeline across five projectile-dynamics models against analytical and RK4 ground truth — developing a generalised parametric PINN that learns the full launch-parameter space in one network, and an inverse formulation that recovers hidden launch conditions and drag from observed motion. Manuscript in preparation.</p>
         </div>
         <div class="tl-item now">
           <div class="when">JAN 2026 — PRESENT</div>
